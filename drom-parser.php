@@ -35,7 +35,7 @@ function parseAd($url) {
   $title = rx0("|<h1[^>]+>([^<]+)</h1>|", $content);
   $title = preg_replace("|[\s\n]+|", " ", $title);
 
-  $descr = rx0("|<p><span class=\"b-text-gray\">Дополнительно:</span> (.*?)</p>|s", $content);
+  $descr = rx0("|<p><span class=\"b-text-gray\">Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕ:</span> (.*?)</p>|s", $content);
   $descr = preg_replace("|<br />|", "\n", $descr);
   $descr = preg_replace("|(\s*\n\s*)+|s", "\n", $descr);
 
@@ -44,7 +44,7 @@ function parseAd($url) {
 
   $vin = rx0("|b-text_color_gray-dark\">VIN:</span>\n\s*<span>([^<]+)</span>|", $content);
   if (!$vin)
-    $vin = rx0("|b-text_color_gray-dark\">Номер кузова:</span>\n\s*<span>([^<]+)</span>|", $content);
+    $vin = rx0("|b-text_color_gray-dark\">РќРѕРјРµСЂ РєСѓР·РѕРІР°:</span>\n\s*<span>([^<]+)</span>|", $content);
 
   $str = "URL $url\n";
   $str .= "TITLE $title\n";
